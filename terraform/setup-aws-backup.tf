@@ -40,6 +40,13 @@ resource "aws_backup_vault" "backup_vault" {
   kms_key_arn = aws_kms_key.mm_backup_vault_kms.arn
 }
 
+#enable_continuous_backup = false for yearly backup because
+# "With continuous backups, you can restore your AWS Backup-supported resource by rewinding it back to a specific time that you choose, within 1 second of precision (going back a maximum of 35 days). Available for RDS, and S3 resources."
+
+# AND
+
+# "The retention period for continuous backups can be between 1 and 35 days."
+# that's why it was not taking 365 days
 
 module "Daily_Backup_Plan" {
   count                                = data.aws_ssm_parameter.daily_backup_enabled.value ? 1 : 0
