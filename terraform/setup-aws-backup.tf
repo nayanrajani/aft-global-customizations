@@ -51,6 +51,7 @@ module "Daily_Backup_Plan" {
   selection_tags_keys                  = ["daily-backup"]
   backup_schedule_parameter_name       = "daily_backup_schedule"
   backup_retention_days_parameter_name = "daily_backup_retention"
+  continous_backup                     = true
 }
 
 module "Weekly_Backup_Plan" {
@@ -60,10 +61,10 @@ module "Weekly_Backup_Plan" {
   Backup_Rule_Name                     = "Weekly_Backup_Plan_Rule"
   backup_role_arn                      = aws_iam_role.backup_role.arn
   backup_vault_name                    = aws_backup_vault.backup_vault.name
-  selection_tags_keys                  = ["weekly_backup"]
+  selection_tags_keys                  = ["weekly-backup"]
   backup_schedule_parameter_name       = "weekly_backup_schedule"
   backup_retention_days_parameter_name = "weekly_backup_retention"
-
+  continous_backup                     = true
 }
 
 module "Monthly_Backup_Plan" {
@@ -73,9 +74,10 @@ module "Monthly_Backup_Plan" {
   Backup_Rule_Name                     = "Monthly_Backup_Plan_Rule"
   backup_role_arn                      = aws_iam_role.backup_role.arn
   backup_vault_name                    = aws_backup_vault.backup_vault.name
-  selection_tags_keys                  = ["monthly_backup"]
+  selection_tags_keys                  = ["monthly-backup"]
   backup_schedule_parameter_name       = "monthly_backup_schedule"
   backup_retention_days_parameter_name = "monthly_backup_retention"
+  continous_backup                     = true
 
 }
 
@@ -86,9 +88,10 @@ module "Yearly_Backup_Plan" {
   Backup_Rule_Name                     = "Yearly_Backup_Plan_Rule"
   backup_role_arn                      = aws_iam_role.backup_role.arn
   backup_vault_name                    = aws_backup_vault.backup_vault.name
-  selection_tags_keys                  = ["yearly_backup"]
+  selection_tags_keys                  = ["yearly-backup"]
   backup_schedule_parameter_name       = "yearly_backup_schedule"
   backup_retention_days_parameter_name = "yearly_backup_retention"
+  continous_backup                     = false
 
 }
 

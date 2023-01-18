@@ -45,3 +45,8 @@ variable "secondary_vault_arn" {
   type    = string
   default = ""
 }
+
+variable "continous_backup" {
+  type    = bool
+  default = true
+}

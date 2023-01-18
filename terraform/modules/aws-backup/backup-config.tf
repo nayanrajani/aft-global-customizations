@@ -15,7 +15,8 @@ resource "aws_backup_plan" "backup_plan_without_copy" {
     schedule                 = data.aws_ssm_parameter.backup_schedule.value
     start_window             = var.window_start
     completion_window        = var.window_completion
-    enable_continuous_backup = true
+    # enable_continuous_backup = true
+    enable_continuous_backup = var.continous_backup
     lifecycle {
       delete_after = data.aws_ssm_parameter.backup_retention.value
     }
